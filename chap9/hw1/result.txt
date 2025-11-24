@@ -1,0 +1,23 @@
+dcuuser@ssh-jinseong523:~/syspro/chap9$ ls
+hw1  hw2  hw3  hw4  pro1  pro2  pro3  pro4  pro5  pro6
+dcuuser@ssh-jinseong523:~/syspro/chap9$ sleep 100 &
+[1] 382210
+dcuuser@ssh-jinseong523:~/syspro/chap9$ sleep 100 &
+[2] 382211
+dcuuser@ssh-jinseong523:~/syspro/chap9$ jobs
+[1]-  Running                 sleep 100 &
+[2]+  Running                 sleep 100 &
+dcuuser@ssh-jinseong523:~/syspro/chap9$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+dcuuser   382172       0  0 11:59 pts/5    00:00:00 /bin/bash -l
+dcuuser   382210  382172  0 12:02 pts/5    00:00:00 sleep 100
+dcuuser   382211  382172  0 12:02 pts/5    00:00:00 sleep 100
+dcuuser   382213  382172  0 12:02 pts/5    00:00:00 ps -f
+dcuuser@ssh-jinseong523:~/syspro/chap9$ kill %1
+dcuuser@ssh-jinseong523:~/syspro/chap9$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+dcuuser   382172       0  0 11:59 pts/5    00:00:00 /bin/bash -l
+dcuuser   382211  382172  0 12:02 pts/5    00:00:00 sleep 100
+dcuuser   382215  382172  0 12:02 pts/5    00:00:00 ps -f
+[1]-  Terminated              sleep 100
+dcuuser@ssh-jinseong523:~/syspro/chap9$ 
